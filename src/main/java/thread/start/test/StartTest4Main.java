@@ -5,11 +5,9 @@ import static thread.util.MyLogger.log;
 public class StartTest4Main {
 
     public static void main(String[] args) {
-        Runnable runnable1 = new PrintWords("A", 1000);
-        Runnable runnable2 = new PrintWords("B", 500);
 
-        Thread thread1 = new Thread(runnable1);
-        Thread thread2 = new Thread(runnable2);
+        Thread thread1 = new Thread(new PrintWords("A", 1000), "Thread-A");
+        Thread thread2 = new Thread(new PrintWords("B", 500), "Thread-B");
 
         thread1.start();
         thread2.start();
